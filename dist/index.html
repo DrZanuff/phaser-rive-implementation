@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="game.js"></script>
+    <link rel="stylesheet" type='text/css' href="style.css">
+  </head>
+  <body>
+    <canvas id="rive-canvas-car" width="400" height="400"></canvas>
+    <canvas id="rive-canvas-boy" width="400" height="400"></canvas>
+
+    <script src="https://unpkg.com/@rive-app/canvas@2.1.0"></script>
+    <script>
+      const car = new rive.Rive({
+        src: "https://cdn.rive.app/animations/vehicles.riv",
+        canvas: document.getElementById("rive-canvas-car"),
+        autoplay: true,
+        stateMachines: "bumpy",
+        onLoad: () => {
+          car.resizeDrawingSurfaceToCanvas();
+        },
+      });
+
+      const boy = new rive.Rive({
+        src: "assets/boy.riv",
+        canvas: document.getElementById("rive-canvas-boy"),
+        autoplay: true,
+        stateMachines: "State Machine 1",
+        onLoad: () => {
+          boy.resizeDrawingSurfaceToCanvas();
+        },
+      });
+    </script>
+  </body>
+</html>
